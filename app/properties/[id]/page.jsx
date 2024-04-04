@@ -1,53 +1,26 @@
-'use client';
-import { useEffect, useState } from "react";
-import { fetchProperty } from "@/utils/request";
-import PropertyHeaderImage from "@/components/PropertyHeaderImage";
-import { useRouter } from 'next/navigation';
+import PropertyHeaderImage from '@/components/PropertyHeaderImage';
+import { fetchProperty } from '@/utils/request'
+import React from 'react'
 
-const PropertyPage = () => {
-  const router = useRouter();
-  const [property, setProperty] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [isRouterReady, setIsRouterReady] = useState(false);
 
-  useEffect(() => {
-    if (router.asPath !== router.route) {
-      setIsRouterReady(true);
-    }
-  }, [router]);
+// when you decide to use nextjs , utilize server side rendering and data fetching. Dont make your page.js files as client components, otherwise you will be writing just react
+async function PropertyPage({ params }) {
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const id = router.query?.id;
-      if (!id) return;
-      try {
-        const propertyData = await fetchProperty(id);
-        setProperty(propertyData);
-      } catch (error) {
-        console.error('Error fetching property:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const property = await fetchProperty(params.id)
 
-    if (isRouterReady) {
-      fetchData();
-    }
-  }, [isRouterReady, router]);
-
-  if (!property && !loading) {
+  if (!property) {
     return (<h1 className="text-center text-2xl font-bold mt-10">No Property Found</h1>);
   }
 
   return (
     <>
-      {!loading && property && (
+      {property && (
         <>
           <PropertyHeaderImage image={property.images[0]} />
         </>
       )}
     </>
   );
-};
+}
 
-export default PropertyPage;
+export default PropertyPage

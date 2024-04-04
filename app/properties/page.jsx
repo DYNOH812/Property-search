@@ -2,6 +2,13 @@
 import React, { useEffect, useState } from 'react'; 
 import PropertyCard from '@/components/PropertyCard';
 import { fetchProperties } from '@/utils/request';
+import { ClipLoader } from 'react-spinners';
+
+const override = {
+  display: 'block',
+  margin: '100px auto',
+}
+
 
 const PropertiesPage = () => {
   const [loading, setLoading] = useState(true);
@@ -31,7 +38,13 @@ const PropertiesPage = () => {
     <section className="px-4 py-6">
       <div className="container-xl lg:container m-auto px-4 py-6">
         {loading ? (
-          <p>Loading...</p>
+            <ClipLoader
+            color='#3b82f6'
+            loading={loading}
+            cssOverride={override}
+            size={150}
+            aria-label="Loading Spinner"
+          />
         ) : properties.length === 0 ? (
           <p>No Properties found</p>
         ) : (
