@@ -3,7 +3,7 @@ import PropertyImages from '@/components/PropertyImages';
 import PropertyHeaderImage from '@/components/PropertyHeaderImage';
 import { fetchProperty } from '@/utils/request';
 import Link from 'next/link';
-import PropertyDetails from '@/components/PropertyDetails';
+import Property from '@/models/Property';
 import {FaArrowLeft} from 'react-icons/fa';
 import BookmarkButton from '@/components/BookmarkButton';
 import ShareButtons from '@/components/ShareButtons';
@@ -38,7 +38,7 @@ async function PropertyPage({ params }) {
       <div className="container m-auto py-10 px-6">
         <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
                           
-              <PropertyDetails property={ property }/>
+              <Property property={ property }/>
          <aside className="space-y-4">       
             <BookmarkButton property={property}/>
             <ShareButtons property={property}/>

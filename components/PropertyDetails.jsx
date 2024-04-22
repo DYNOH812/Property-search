@@ -20,16 +20,16 @@ const PropertyDetails = ({ property }) => {
           <div className="flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0">
             <div className="text-gray-500 mr-2 font-bold">Nightly</div>
             <div className="text-2xl font-bold text-blue-500">
-            {property.rates.nightly ? (<div> ksh {property.rates.nightly.toLocaleString()} </div>) : (<FaTimes className="text-red-700" />)}
+            {property.rates.nightly ? (ksh `${property.rates.nightly.toLocaleString()}`) : (<FaTimes className="text-red-700" />)}
             </div>
           </div>
           <div className="flex items-center justify-center mb-4 border-b border-gray-200 md:border-b-0 pb-4 md:pb-0">
             <div className="text-gray-500 mr-2 font-bold"></div>
-            <div className="text-2xl font-bold text-blue-500">{property.rates.weekly ? (<div> ksh {property.rates.weekly.toLocaleString()} </div>) : (<FaTimes className="text-red-700" />)}</div>
+            <div className="text-2xl font-bold text-blue-500">{property.rates.weekly ? ( ksh `${property.rates.weekly.toLocaleString()}`) : (<FaTimes className="text-red-700" />)}</div>
           </div>
           <div className="flex items-center justify-center mb-4 pb-4 md:pb-0">
             <div className="text-gray-500 mr-2 font-bold"></div>
-            <div className="text-2xl font-bold text-blue-500">{property.rates.weekly ? (<div> ksh {property.rates.weekly.toLocaleString()} </div>) : (<FaTimes className="text-red-700" />)}</div>
+            <div className="text-2xl font-bold text-blue-500">{property.rates.weekly ? ( ksh `${property.rates.weekly.toLocaleString()}` ) : (<FaTimes className="text-red-700" />)}</div>
           </div>
         </div>
       </div>
