@@ -8,14 +8,12 @@ export const GET = async (request, { params }) => {
     try {
         await connectDB();
 
-        const properties = await Property.findById({});
+        const property = await Property.findById(params.id);
 
-        if (!properties) {
-            return new Response('Property Not Found', { status: 404 });
+        if (!property) return new Response('Property Not Found', { status: 404 });
             // return response.status(404).send('Property Not Found');
-        }
-
-        return new Response(JSON.stringify(properties), { status: 200 });
+        
+        return new Response(JSON.stringify(property), { status: 200 });
         // return response.status(200).json(property);
     } catch (error) {
         console.log(error);
