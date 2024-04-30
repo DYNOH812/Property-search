@@ -25,7 +25,7 @@ const PropertySchema = new Schema(
       city: {
         type: String,
       },
-      county: {
+      state: {
         type: String,
       },
       zipcode: {

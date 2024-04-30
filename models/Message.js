@@ -1,43 +1,46 @@
-import {Schema, model, models} from 'mongoose';
+import  {Schema, model, models} from 'mongoose';
 
 const MessageSchema = new Schema({
     sender: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        required: true,
+        required: true
     },
     recipient: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        required: true,
+        required: true
     },
     property: {
         type: Schema.Types.ObjectId,
-        ref: 'property',
-        required: true,
+        ref: 'User',
+        required: true
     },
-    name:{
+    name: {
         type: String,
-        required: [true, 'Name is required']
+        required : [true, 'Name is required']
     },
-    email:{
+    email: {
         type: String,
-        required: [true, 'Email is required']
+        required : [true, 'Email is required']
     },
-    phone:{
+    phone: {
+        type: String,
+        required : [true, 'Phone is required']
+    },
+    body: {
         type: String,
     },
-    body:{
-        type: String,
-    },
-    read:{
+    read : {
         type: Boolean,
         default: false,
-    },
-}, {
-    timestamps: true,
-});
+    }
+},
+{
+timeStamp: true,
+}
+);
 
-const Message = models.Message || model('Message', MessageSchema);
+const Message = models.Message || model('Message',MessageSchema);
 
 export default Message;

@@ -2,6 +2,7 @@ import '@/assets/styles/globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AuthProvider from '@/components/AuthProvider';
+import { GlobalProvider } from '@/context/GlobalContext';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Corrected import path
 
@@ -16,6 +17,7 @@ export const metadata = {
 
 const MainLayout = ({ children }) => {
   return (
+    <GlobalProvider>
     <AuthProvider>
     <html lang='en'>
       <body>
@@ -26,6 +28,7 @@ const MainLayout = ({ children }) => {
       </body>
     </html>
     </AuthProvider>
+    </GlobalProvider>
   )
 }
 
