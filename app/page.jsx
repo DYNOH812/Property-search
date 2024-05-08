@@ -1,6 +1,7 @@
 import Hero from '@/components/Hero';
 import HomeProperties from '@/components/HomeProperties';
 import InfoBoxes from '@/components/infoBoxes';
+import FeaturedProperties from '@/components/FeaturedProperties';
 
 
 
@@ -10,7 +11,9 @@ const HomePage = () => {
     <>
      <Hero/>
      <InfoBoxes/>
+     <FeaturedProperties/>
      <HomeProperties/>
+    
      
     </>
   )
